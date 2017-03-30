@@ -1,36 +1,33 @@
 /*
-** goto.c for CLIST in /home/hexa/delivery/clist/src
+** goto.c for CPE in /home/hexa/delivery/clist/src
 ** 
 ** Made by HexA
 ** Login   <hexa@epitech.net>
 ** 
-** Started on  Tue Mar 21 13:11:17 2017 HexA
-** Last update Wed Mar 22 13:00:27 2017 HexA
+** Started on  Thu Mar 30 11:04:50 2017 HexA
+** Last update Thu Mar 30 11:12:13 2017 HexA
 */
 
 #include "clist.h"
 
-void	clist_goto(t_list *list, int pos)
+t_list_data	*clist_goto(t_list *list, int pos)
 {
-  int	i;
+  int		i;
+  t_list_data	*output;
 
-  i = 0;
-  if (pos <= 0 && (pos == CLIST_START || pos == CLIST_END))
+  output = list->start;
+  if ((pos <= 0 && pos != CLIST_END) || (pos == CLIST_START))
+    return (output);
+  else if (pos == CLIST_END)
+    return (list->end);
+  else
   {
-    if (pos == CLIST_START)
-      list->list_data = list->list_index->start;
-    else
-      list->list_data = list->list_index->end;
-  }
-  else if (pos >= 0 && pos <= clist_len(list))
-  {
-    clist_goto(list, CLIST_START);
+    i = 0;
     while (i < pos)
     {
-      list->list_data = list->list_data->next;
+      output = output->next;
       i++;
     }
+    return (output);
   }
-  else
-    return ;
 }

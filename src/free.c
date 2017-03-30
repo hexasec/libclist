@@ -5,7 +5,7 @@
 ** Login   <hexa@epitech.net>
 ** 
 ** Started on  Tue Mar 21 13:18:27 2017 HexA
-** Last update Wed Mar 22 15:44:01 2017 HexA
+** Last update Thu Mar 30 15:18:43 2017 HexA
 */
 
 #include <stdio.h>
@@ -14,15 +14,16 @@
 
 void		clist_free(t_list *list)
 {
-  int		i;
+  t_list_data	*tmp;
+  t_list_data	*del;
 
-  i = clist_len(list);
-  while (i >= 0)
+  tmp = list->start;
+  while (tmp != NULL)
   {
-    clist_remove(list, i);
-    i--;
+    del = tmp;
+    printf("%s\n", del->data);
+    tmp = tmp->next;
+    free(del);
   }
-  //free(list->list_data);
-  free(list->list_index);
   free(list);
 }

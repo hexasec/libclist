@@ -5,7 +5,7 @@
 ** Login   <hexa@epitech.net>
 ** 
 ** Started on  Tue Mar 21 10:43:46 2017 HexA
-** Last update Wed Mar 22 12:51:14 2017 HexA
+** Last update Thu Mar 30 10:45:48 2017 HexA
 */
 
 #include <stdlib.h>
@@ -16,10 +16,10 @@ t_list		*clist_init()
   t_list	*output;
 
   output = malloc(sizeof(t_list));
-  output->list_data = malloc(sizeof(t_list_data));
-  output->list_index = malloc(sizeof(t_list_index));
-  output->list_data->next = NULL;
-  output->list_index->start = NULL;
-  output->list_index->end = NULL;
+  if (output != NULL)
+  {
+    output->start = NULL;
+    output->end = NULL;
+  }
   return (output);
 }

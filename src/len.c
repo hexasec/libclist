@@ -5,7 +5,7 @@
 ** Login   <hexa@epitech.net>
 ** 
 ** Started on  Wed Mar 22 12:21:01 2017 HexA
-** Last update Wed Mar 22 12:34:54 2017 HexA
+** Last update Thu Mar 30 10:59:53 2017 HexA
 */
 
 #include <stdlib.h>
@@ -14,15 +14,14 @@
 int		clist_len(t_list *list)
 {
   int		output;
-  t_list	*tmp;
+  t_list_data	*tmp;
 
   output = 0;
-  tmp = list;
-  clist_goto(tmp, CLIST_START);
-  while (tmp->list_data != NULL)
+  tmp = list->start;
+  while (tmp != NULL)
   {
     output++;
-    tmp->list_data = tmp->list_data->next;
+    tmp = tmp->next;
   }
   return (output - 1);
 }

@@ -5,7 +5,7 @@
 ** Login   <hexa@epitech.net>
 ** 
 ** Started on  Tue Mar 21 11:12:26 2017 HexA
-** Last update Wed Mar 22 12:59:10 2017 HexA
+** Last update Thu Mar 30 15:04:38 2017 HexA
 */
 
 #include <stdlib.h>
@@ -22,20 +22,20 @@ int		clist_append(t_list *list, void *data)
     return (CLIST_MALLOC_ERROR);
   new->data = data;
   new->next = NULL;
-  if (list->list_index->start == NULL)
+  if (list->start == NULL)
   {
-    list->list_index->start = new;
-    list->list_index->end = new;
+    list->start = new;
+    list->end = new;
   }
-  else if (list->list_index->start->next == NULL)
+  else if (list->start->next == NULL)
   {
-    list->list_index->start->next = new;
-    list->list_index->end = new;
+    list->start->next = new;
+    list->end = new;
   }
   else
   {
-    list->list_index->end->next = new;
-    list->list_index->end = new;
+    list->end->next = new;
+    list->end = new;
   }
   return (CLIST_SUCCESS);
 }
