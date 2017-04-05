@@ -5,17 +5,16 @@
 ## Login   <hexa@epitech.net>
 ## 
 ## Started on  Tue Mar 21 10:36:36 2017 HexA
-## Last update Thu Mar 30 14:59:51 2017 HexA
+## Last update Wed Apr 05 10:49:32 2017 HexA
 ##
 
 CC	=	gcc
 
-CFLAGS	=	-g3 -I include/
+CFLAGS	=	-I include/
 
 RM	=	rm -rf
 
-SRC	=	main.c		\
-		src/init.c	\
+SRC	=	src/init.c	\
 		src/len.c	\
 		src/append.c	\
 		src/insert.c	\
@@ -26,12 +25,12 @@ SRC	=	main.c		\
 
 OBJ	=	$(SRC:.c=.o)
 
-NAME	=	clist
+NAME	=	libclist.a
 
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	ar rc $(NAME) $(OBJ)
 
 clean:
 	$(RM) $(OBJ)
