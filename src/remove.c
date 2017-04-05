@@ -5,7 +5,7 @@
 ** Login   <hexa@epitech.net>
 ** 
 ** Started on  Thu Mar 30 11:39:53 2017 HexA
-** Last update Thu Mar 30 15:05:23 2017 HexA
+** Last update Wed Apr 05 12:49:03 2017 HexA
 */
 
 #include <stdlib.h>
@@ -23,7 +23,7 @@ void		clist_remove(t_list *list, int pos)
     free(list->start);
     list->start = next;
   }
-  else if (pos == CLIST_END)
+  else if (pos == CLIST_END || pos == clist_len(list))
   {
     prev = clist_goto(list, clist_len(list) - 1);
     prev->next = NULL;
