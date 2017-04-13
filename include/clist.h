@@ -5,7 +5,7 @@
 ** Login   <hexa@epitech.net>
 ** 
 ** Started on  Tue Mar 21 10:39:43 2017 HexA
-** Last update Thu Mar 30 15:00:25 2017 HexA
+** Last update Thu Apr 13 10:27:19 2017 HexA
 */
 
 #ifndef CLIST_H_
@@ -38,6 +38,6 @@ int		clist_len(t_list *list);
 t_list_data	*clist_goto(t_list *list, int pos);
 void		*clist_value(t_list *list, int pos);
 void		clist_remove(t_list *list, int pos);
-void		clist_free(t_list *list);
+void		clist_free(t_list *list, void (*my_free)(t_list_data *));
 
 #endif /* CLIST_H_ */
